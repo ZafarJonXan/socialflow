@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1 class="logo">Instagram</h1>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" id="searchInput">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <button class="header-btn" id="createBtn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="header-btn" id="notificationsBtn">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <button class="header-btn" id="messagesBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <div class="profile-avatar" id="profileBtn">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Profile">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" data-page="search">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <a href="#" class="nav-item" data-page="explore">
+                    <i class="fas fa-compass"></i>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="nav-item" data-page="messages">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item" data-page="notifications">
+                    <i class="fas fa-heart"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-item" id="createNavBtn">
+                    <i class="fas fa-plus-square"></i>
+                    <span>Create</span>
+                </a>
+                <a href="#" class="nav-item" data-page="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Home Page -->
+            <div id="homePage" class="page active">
+                <!-- Stories -->
+                <div class="stories-container">
+                    <div class="stories-scroll">
+                        <div class="story-item add-story" id="addStoryBtn">
+                            <div class="story-avatar">
+                                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Your story">
+                                <div class="add-story-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <span class="story-username">Your story</span>
+                        </div>
+                        
+                        <div class="story-item" data-story-id="1">
+                            <div class="story-avatar story-unviewed">
+                                <img src="https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=150" alt="photoartist">
+                            </div>
+                            <span class="story-username">photoartist</span>
+                        </div>
+                        
+                        <div class="story-item" data-story-id="2">
+                            <div class="story-avatar story-viewed">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="traveler">
+                            </div>
+                            <span class="story-username">traveler</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div class="posts-feed" id="postsFeed">
+                    <!-- Posts will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profilePage" class="page">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <div class="profile-avatar-large">
+                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Profile">
+                        </div>
+                        <div class="profile-details">
+                            <div class="profile-username">
+                                <h2>myusername</h2>
+                                <button class="btn-secondary">Edit profile</button>
+                            </div>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="stat-number">42</span>
+                                    <span class="stat-label">posts</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">1,250</span>
+                                    <span class="stat-label">followers</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">890</span>
+                                    <span class="stat-label">following</span>
+                                </div>
+                            </div>
+                            <div class="profile-bio">
+                                <p>Living my best life 📸✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-posts-grid" id="profilePostsGrid">
+                    <!-- Profile posts will be added here -->
+                </div>
+            </div>
+
+            <!-- Messages Page -->
+            <div id="messagesPage" class="page">
+                <div class="messages-container">
+                    <div class="messages-sidebar">
+                        <div class="messages-header">
+                            <h3>Messages</h3>
+                            <button class="btn-icon">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div class="messages-search">
+                            <input type="text" placeholder="Search messages">
+                        </div>
+                        <div class="messages-list" id="messagesList">
+                            <!-- Message threads will be added here -->
+                        </div>
+                    </div>
+                    
+                    <div class="chat-area" id="chatArea">
+                        <div class="chat-placeholder">
+                            <i class="fas fa-paper-plane"></i>
+                            <h3>Your Messages</h3>
+                            <p>Send private photos and messages to a friend or group.</p>
+                            <button class="btn-primary">Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="mobile-nav-item active" data-page="home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="search">
+            <i class="fas fa-search"></i>
+        </a>
+        <a href="#" class="mobile-nav-item" id="mobileCreateBtn">
+            <i class="fas fa-plus-square"></i>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="notifications">
+            <i class="fas fa-heart"></i>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="profile">
+            <i class="fas fa-user"></i>
+        </a>
+    </nav>
+
+    <!-- Create Post Modal -->
+    <div class="modal" id="createModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create new post</h3>
+                <button class="modal-close" id="closeCreateModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="create-step" id="selectStep">
+                    <div class="create-options">
+                        <button class="create-option" id="createPostBtn">
+                            <i class="fas fa-image"></i>
+                            <span>Create Post</span>
+                        </button>
+                        <button class="create-option" id="createStoryBtn">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add to Story</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="create-step hidden" id="uploadStep">
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Select photos and videos</h4>
+                        <p>or drag and drop</p>
+                        <button class="btn-primary" id="selectFilesBtn">Select from computer</button>
+                        <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
+                    </div>
+                    <div class="preview-area hidden" id="previewArea">
+                        <div class="preview-container" id="previewContainer"></div>
+                    </div>
+                </div>
+                
+                <div class="create-step hidden" id="detailsStep">
+                    <div class="post-details">
+                        <div class="media-preview" id="mediaPreview"></div>
+                        <div class="post-form">
+                            <textarea id="captionInput" placeholder="Write a caption..." rows="4"></textarea>
+                            <div class="form-actions">
+                                <button class="btn-secondary" id="backBtn">Back</button>
+                                <button class="btn-primary" id="shareBtn">Share</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Viewer Modal -->
+    <div class="story-viewer" id="storyViewer">
+        <div class="story-progress">
+            <div class="progress-bar" id="storyProgress"></div>
+        </div>
+        <div class="story-header">
+            <div class="story-user-info">
+                <img src="" alt="" id="storyUserAvatar">
+                <div class="story-user-details">
+                    <span id="storyUsername"></span>
+                    <span id="storyTime"></span>
+                </div>
+            </div>
+            <button class="story-close" id="closeStoryViewer">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="story-content">
+            <div class="story-media" id="storyMedia"></div>
+            <div class="story-nav-left" id="storyNavLeft"></div>
+            <div class="story-nav-right" id="storyNavRight"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="js/posts.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
