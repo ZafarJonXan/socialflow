@@ -1,0 +1,411 @@
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ig-white);
+    border-top: 1px solid var(--ig-border);
+    display: none;
+    z-index: 1000;
+}
+
+.mobile-nav-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    color: var(--ig-black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-item.active {
+    color: var(--ig-blue);
+}
+
+.mobile-nav-item i {
+    font-size: 20px;
+}
+
+/* Story Viewer */
+.story-viewer {
+    position: fixed;
+    inset: 0;
+    background: var(--ig-black);
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.story-viewer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-progress {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    z-index: 10;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--ig-white);
+    border-radius: 1px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.story-header {
+    position: absolute;
+    top: 32px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.story-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.story-user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--ig-white);
+}
+
+.story-user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-user-details span:first-child {
+    color: var(--ig-white);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.story-user-details span:last-child {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.story-close {
+    background: none;
+    border: none;
+    color: var(--ig-white);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.story-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.story-close i {
+    font-size: 20px;
+}
+
+.story-content {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-media {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.story-media img,
+.story-media video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.story-nav-left,
+.story-nav-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.story-nav-left {
+    left: 0;
+}
+
+.story-nav-right {
+    right: 0;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .content-area {
+        margin-left: 200px;
+    }
+    
+    .search-bar {
+        width: 250px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .header {
+        display: none;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: flex;
+    }
+    
+    .main-content {
+        margin-top: 0;
+        padding-bottom: 60px;
+    }
+    
+    .content-area {
+        margin-left: 0;
+        padding: 16px;
+        max-width: none;
+    }
+    
+    .stories-container {
+        margin: 0 -16px 24px -16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .post-card {
+        margin: 0 -16px 24px -16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .profile-username {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .profile-stats {
+        justify-content: center;
+    }
+    
+    .messages-container {
+        height: calc(100vh - 76px);
+        margin: 0 -16px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .messages-sidebar {
+        width: 100%;
+    }
+    
+    .chat-area {
+        display: none;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 0 16px;
+    }
+    
+    .post-details {
+        flex-direction: column;
+    }
+    
+    .media-preview {
+        max-width: none;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .content-area {
+        padding: 8px;
+    }
+    
+    .stories-scroll {
+        padding: 0 8px;
+    }
+    
+    .story-item {
+        gap: 4px;
+    }
+    
+    .story-avatar {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .story-username {
+        font-size: 11px;
+        max-width: 56px;
+    }
+    
+    .profile-avatar-large {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-username h2 {
+        font-size: 20px;
+    }
+    
+    .profile-stats {
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 16px;
+    }
+    
+    .profile-posts-grid {
+        gap: 2px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ig-bg: #000000;
+        --ig-white: #262626;
+        --ig-black: #ffffff;
+        --ig-border: #363636;
+        --ig-text-light: #a8a8a8;
+    }
+    
+    body {
+        background: var(--ig-bg);
+        color: var(--ig-black);
+    }
+    
+    .search-bar input {
+        background: #363636;
+        color: var(--ig-black);
+    }
+    
+    .search-bar input:focus {
+        background: var(--ig-white);
+    }
+    
+    .header-btn:hover,
+    .btn-icon:hover {
+        background: #363636;
+    }
+    
+    .nav-item:hover {
+        background: #363636;
+    }
+    
+    .create-option:hover,
+    .upload-area:hover {
+        background: #1a1a1a;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --ig-border: #000000;
+        --ig-text-light: #666666;
+    }
+    
+    .story-viewed {
+        background: #666666;
+    }
+    
+    .search-bar input {
+        border: 1px solid var(--ig-border);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .story-item:hover,
+    .profile-post-item:hover img {
+        transform: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .sidebar,
+    .mobile-nav,
+    .modal,
+    .story-viewer {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0;
+    }
+    
+    .content-area {
+        margin: 0;
+        max-width: none;
+    }
+    
+    .post-card {
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .post-media {
+        max-height: 400px;
+    }
+}
